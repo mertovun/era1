@@ -1,0 +1,27 @@
+### Register a New User
+POST http://localhost:3001/auth/register
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Login User
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Get List of Users
+GET http://localhost:3001/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+### Verify Token and Get User Data
+GET http://localhost:3001/auth/verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
