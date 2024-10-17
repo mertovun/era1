@@ -1,0 +1,46 @@
+### Post a New Event
+POST http://localhost:3002/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+{
+  "title": "John Doe Birthday",
+  "description": "Happy Birthday John",
+  "date": "2024-11-10T10:00:00Z"
+}
+
+### Get All Events
+GET http://localhost:3002/events
+
+### Update an Event (Requires Bearer Token)
+PUT http://localhost:3002/events/670f88da4a169be83fdb5181
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+{
+  "title": "Updated Node.js Workshop",
+  "description": "An updated description for the Node.js workshop",
+  "date": "2024-12-20T10:00:00Z"
+}
+
+### Delete an Event (Requires Bearer Token)
+DELETE http://localhost:3002/events/670f7eb8b895b8f0e1d9e76c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+### Join an Event (Requires Bearer Token)
+POST http://localhost:3002/events/670f88da4a169be83fdb5181/join
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+
+### Unjoin an Event (Requires Bearer Token)
+POST http://localhost:3002/events/670f88da4a169be83fdb5181/unjoin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+### Post a Comment on Event (Requires Bearer Token)
+POST http://localhost:3002/events/670f88da4a169be83fdb5181/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzI5MDU1NjAzfQ.DNhoUEbeU_ydma6eWQZsCl5yaTbgwDL1ExI6yMdakf8
+
+{
+  "text": "This is an awesome workshop!"
+}
