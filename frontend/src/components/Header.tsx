@@ -23,7 +23,7 @@ const Header: React.FC = () => {
         <div className="nav-right">
           {user ? (
             <>
-              <span className="nav-link">Welcome, {user.username}</span>
+              <span className="nav-link"> {user.username}</span>
               <button className="nav-button" onClick={handleLogout}>Logout</button>
             </>
           ) : (

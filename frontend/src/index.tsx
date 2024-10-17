@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Header from './components/Header';
 import { AuthProvider } from './context/AuthContext';
+import NewEvent from './pages/NewEvent';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,6 +17,7 @@ root.render(
     <Header/>
     <Routes>
       <Route path="/" element={<EventFeed />} />
+      <Route path="/new" element={<NewEvent />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { eventService } from '../axios';
 import EventCard from '../components/EventCard';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export interface Event {
   _id: number;
@@ -12,7 +14,7 @@ export interface Event {
   createdBy: {
     userId: string;
     username: string;
-  }
+  };
 }
 
 export interface Comment {
@@ -26,6 +28,8 @@ const EventFeed: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,12 +47,23 @@ const EventFeed: React.FC = () => {
     fetchData();
   }, []);
 
+  const handleNewEventClick = () => {
+    navigate('/new');
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
     <div>
       <h1>Events</h1>
+
+      {user && (
+        <button onClick={handleNewEventClick} className="new-event-button">
+          + New Event
+        </button>
+      )}
+
       <ul>
         {events.map((event) => (
           <li key={event._id}>
