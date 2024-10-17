@@ -51,7 +51,7 @@ app.post('/auth/login', async (req: Request, res: Response) => {
   }
   else {
     const token = jwt.sign({ id: user.rows[0].id }, JWT_SECRET);
-    res.json({ token });
+    res.json({ token, userId: user.rows[0].id, username: user.rows[0].username });
   }
 });
 
