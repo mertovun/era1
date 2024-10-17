@@ -1,0 +1,48 @@
+
+.header {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  flex: 1;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link, .nav-button {
+  text-decoration: none;
+  color: #007bff;
+  background-color: transparent;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.nav-button {
+  border: none;
+  background-color: transparent;
+  font: inherit;
+  padding: 0;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #007bff;
+}
+
