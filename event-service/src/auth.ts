@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Request, Response, NextFunction } from 'express';
 
+const userServiceUri = process.env.USER_SERVICE_URI || 'http://localhost:3001'
+
 export const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers['authorization']?.split(' ')[1];
 
@@ -9,8 +11,9 @@ export const verifyToken = async (req: Request, res: Response, next: NextFunctio
   }
 
   else try {
+
     // Call the User Service to verify the token
-    const response = await axios.get('http://localhost:3001/auth/verify', {
+    const response = await axios.get(`${userServiceUri}/auth/verify`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
