@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: process.env.REACT_APP_URI || 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, };
@@ -55,17 +55,6 @@ app.post('/auth/login', async (req: Request, res: Response) => {
   }
 });
 
-app.get('/users', verifyToken, async (req: Request, res: Response) => {
-  try {
-    const users = await pool.query('SELECT id, username, email FROM users');
-    res.json(users.rows);
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    res.status(500).send('Error fetching users');
-  }
-});
-
-// Verify Token and Get User Data (For Event Service)
 app.get('/auth/verify', verifyToken, async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id;
